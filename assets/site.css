@@ -1,0 +1,61 @@
+:root {
+  --bg: #0b111b;
+  --panel: #131c2b;
+  --line: #24324a;
+  --text: #eef3fa;
+  --muted: #a9b6c9;
+  --gold: #ffc531;
+  --orange: #e8962e;
+  --link: #7fb2ff;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+a { color: var(--link); }
+a:hover { color: var(--gold); }
+
+.wrap { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+
+.topbar {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding-bottom: 16px; margin-bottom: 24px; border-bottom: 1px solid var(--line);
+}
+.topbar img { width: 44px; height: 44px; border-radius: 10px; }
+.topbar .brand { font-weight: 800; letter-spacing: .02em; text-decoration: none; color: var(--text); }
+.topbar nav { margin-left: auto; display: flex; gap: 14px; flex-wrap: wrap; font-size: 15px; }
+
+h1 { font-size: 30px; line-height: 1.2; margin: 0 0 8px; }
+h2 { font-size: 21px; margin: 32px 0 8px; color: var(--gold); }
+h3 { font-size: 17px; margin: 22px 0 4px; }
+p, li { color: var(--text); }
+.muted { color: var(--muted); }
+.lead { font-size: 19px; color: var(--muted); margin-top: 0; }
+
+.hero { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; margin-bottom: 20px; }
+.hero img.icon { width: 112px; height: 112px; border-radius: 24px; box-shadow: 0 6px 24px rgba(0,0,0,.45); }
+.hero .tag { color: var(--gold); font-weight: 700; margin: 0; }
+img.keyart { width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--line); display: block; margin: 8px 0 24px; }
+
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 4px 20px 18px; margin: 20px 0; }
+.links { display: flex; gap: 10px; flex-wrap: wrap; margin: 16px 0; }
+.links a {
+  display: inline-block; padding: 10px 16px; border-radius: 10px; background: var(--panel);
+  border: 1px solid var(--line); text-decoration: none; color: var(--text); font-weight: 600;
+}
+.links a:hover { border-color: var(--gold); color: var(--gold); }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+
+@media (prefers-color-scheme: light) {
+  :root { --bg: #f6f8fb; --panel: #ffffff; --line: #d9e0ea; --text: #0b111b; --muted: #4a5568; --gold: #9a6a00; --link: #1f5fbf; }
+  .hero img.icon { box-shadow: 0 6px 20px rgba(0,0,0,.18); }
+}
