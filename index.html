@@ -4,32 +4,167 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Arsidia Games</title>
-<meta name="description" content="Games by Arsidia Games LLC.">
+<meta name="description" content="Arsidia Games is an independent studio making casual mobile games for iPhone, iPad and Android.">
+<meta property="og:title" content="Arsidia Games">
+<meta property="og:description" content="Independent studio making casual mobile games.">
+<meta property="og:image" content="https://arsidiagames.com/prison-intake/keyart.jpg">
 <link rel="icon" href="assets/favicon.png">
-<link rel="stylesheet" href="assets/site.css">
-</head>
-<body>
-<div class="wrap">
-  <h1>Arsidia Games</h1>
-  <p class="lead">Games by Arsidia Games LLC.</p>
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<style>
+  :root {
+    --bg: #f4f7fc; --panel: #ffffff; --line: #dde4ef; --text: #12192a; --muted: #55627a;
+    --band1: #2f6bff; --band2: #8a3dff; --gold: #ffc531; --gold-ink: #3a2a00;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  a { color: var(--band1); }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 16px; }
 
-  <div class="card">
-    <div class="hero">
-      <img class="icon" src="prison-intake/icon-256.png" alt="Prison Intake Officer icon">
-      <div>
-        <h2 style="margin-top:12px">Prison Intake Officer</h2>
-        <p class="tag">Inspection Simulator</p>
-        <p class="muted">Inspect new inmates, uncover hidden contraband, check documents, and make the right call.</p>
+  header { background: linear-gradient(120deg, var(--band1), var(--band2)); color: #fff; }
+  .bar { display: flex; align-items: center; gap: 12px; padding: 16px 0; }
+  .bar .brand { font-weight: 900; font-size: 20px; letter-spacing: .02em; color: #fff; text-decoration: none; }
+  .lang { margin-left: auto; display: flex; background: rgba(255,255,255,.18); border-radius: 999px; padding: 3px; }
+  .lang button { border: 0; background: transparent; color: #fff; font: inherit; font-size: 14px; font-weight: 700;
+    padding: 6px 14px; border-radius: 999px; cursor: pointer; }
+  .lang button[aria-pressed="true"] { background: var(--gold); color: var(--gold-ink); }
+  .hero { padding: 40px 0 64px; }
+  .hero h1 { font-size: clamp(32px, 6vw, 52px); line-height: 1.1; margin: 0 0 12px; font-weight: 900; }
+  .hero p { font-size: 19px; margin: 0; max-width: 560px; color: rgba(255,255,255,.9); }
+
+  main { margin-top: -36px; }
+  h2 { font-size: 24px; margin: 40px 0 14px; }
+  .game { background: var(--panel); border: 1px solid var(--line); border-radius: 20px; overflow: hidden;
+    box-shadow: 0 10px 30px rgba(20,40,90,.10); display: grid; grid-template-columns: 1.3fr 1fr; }
+  .game img.art { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 220px; }
+  .game .info { padding: 24px; }
+  .game .head { display: flex; gap: 14px; align-items: center; }
+  .game .head img { width: 64px; height: 64px; border-radius: 15px; }
+  .game h3 { margin: 0; font-size: 21px; line-height: 1.2; }
+  .tag { color: var(--muted); font-size: 15px; font-weight: 600; margin: 2px 0 0; }
+  .game p.desc { color: var(--muted); }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+  .btn { display: inline-block; padding: 10px 18px; border-radius: 12px; font-weight: 800; text-decoration: none;
+    background: var(--gold); color: var(--gold-ink); box-shadow: 0 3px 0 #d39b00; }
+  .btn.ghost { background: #eef2fa; color: var(--text); box-shadow: 0 3px 0 #d3dbea; font-weight: 700; }
+  .btn:hover { filter: brightness(1.05); }
+
+  .about { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .about div { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+  .about strong { display: block; margin-bottom: 4px; }
+  .about span { color: var(--muted); font-size: 15px; }
+
+  footer { margin: 56px 0 0; padding: 24px 0 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+  footer a { color: var(--muted); }
+
+  [data-lang="es"] .en, [data-lang="en"] .es { display: none; }
+
+  @media (max-width: 720px) {
+    .game { grid-template-columns: 1fr; }
+    .about { grid-template-columns: 1fr; }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0e1424; --panel: #172036; --line: #26324d; --text: #eef3fa; --muted: #a9b6c9; }
+    .btn.ghost { background: #222d47; color: var(--text); box-shadow: 0 3px 0 #111a2c; }
+    a { color: #8fb4ff; }
+  }
+</style>
+</head>
+<body data-lang="en">
+<header>
+  <div class="wrap">
+    <div class="bar">
+      <a class="brand" href="./">ARSIDIA GAMES</a>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-set="en" aria-pressed="true">EN</button>
+        <button type="button" data-set="es" aria-pressed="false">ES</button>
       </div>
     </div>
-    <div class="links">
-      <a href="prison-intake/">Game page</a>
-      <a href="prison-intake/support.html">Support</a>
-      <a href="prison-intake/privacy.html">Privacy Policy</a>
+    <div class="hero">
+      <h1 class="en">Small games, big fun.</h1>
+      <h1 class="es" lang="es">Juegos pequeños, mucha diversión.</h1>
+      <p class="en">Arsidia Games is an independent studio making casual mobile games you can pick up in a minute.</p>
+      <p class="es" lang="es">Arsidia Games es un estudio independiente que crea juegos casuales para móvil que aprendes en un minuto.</p>
     </div>
   </div>
+</header>
 
-  <footer>&copy; 2026 Arsidia Games LLC &middot; <a href="mailto:ugasricardo@gmail.com">ugasricardo@gmail.com</a></footer>
-</div>
+<main class="wrap">
+  <h2 class="en">Our games</h2>
+  <h2 class="es" lang="es">Nuestros juegos</h2>
+
+  <article class="game">
+    <img class="art" src="prison-intake/keyart.jpg" width="1920" height="1080" alt="Prison Intake Officer key art">
+    <div class="info">
+      <div class="head">
+        <img src="prison-intake/icon-256.png" alt="">
+        <div>
+          <h3>Prison Intake Officer</h3>
+          <p class="tag en">Inspection simulator · iPhone &amp; iPad</p>
+          <p class="tag es" lang="es">Simulador de inspección · iPhone y iPad</p>
+        </div>
+      </div>
+      <p class="desc en">Inspect new inmates, uncover hidden contraband, check documents, and make the right call.</p>
+      <p class="desc es" lang="es">Inspecciona a cada recluso, encuentra objetos prohibidos, revisa documentos y toma la decisión correcta.</p>
+      <div class="btns">
+        <a class="btn en" href="https://apps.apple.com/app/prison-intake-officer/id6819776751">App Store</a>
+        <a class="btn es" lang="es" href="https://apps.apple.com/app/prison-intake-officer/id6819776751">App Store</a>
+        <a class="btn ghost en" href="prison-intake/">Game page</a>
+        <a class="btn ghost es" lang="es" href="prison-intake/#es">Ver el juego</a>
+        <a class="btn ghost en" href="prison-intake/support.html">Support</a>
+        <a class="btn ghost es" lang="es" href="prison-intake/support.html#es">Ayuda</a>
+      </div>
+    </div>
+  </article>
+
+  <h2 class="en">About the studio</h2>
+  <h2 class="es" lang="es">Sobre el estudio</h2>
+  <section class="about">
+    <div>
+      <strong class="en">Made for phones</strong><strong class="es" lang="es">Hechos para el móvil</strong>
+      <span class="en">Portrait play, big touch controls, short sessions.</span>
+      <span class="es" lang="es">Pantalla vertical, controles grandes y partidas cortas.</span>
+    </div>
+    <div>
+      <strong class="en">Privacy first</strong><strong class="es" lang="es">Tu privacidad primero</strong>
+      <span class="en">Every game has a clear privacy policy.</span>
+      <span class="es" lang="es">Cada juego tiene una política de privacidad clara.</span>
+    </div>
+    <div>
+      <strong class="en">Talk to us</strong><strong class="es" lang="es">Escríbenos</strong>
+      <span><a href="mailto:ugasricardo@gmail.com">ugasricardo@gmail.com</a></span>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Arsidia Games LLC ·
+    <a class="en" href="prison-intake/privacy.html">Privacy Policy</a>
+    <a class="es" lang="es" href="prison-intake/privacy-es.html">Política de privacidad</a>
+  </footer>
+</main>
+
+<script>
+  (function () {
+    var KEY = "arsidia-lang";
+    function apply(lang) {
+      document.body.setAttribute("data-lang", lang);
+      document.documentElement.lang = lang;
+      document.querySelectorAll(".lang button").forEach(function (b) {
+        b.setAttribute("aria-pressed", String(b.dataset.set === lang));
+      });
+    }
+    var saved = null;
+    try { saved = localStorage.getItem(KEY); } catch (e) {}
+    var nav = (navigator.language || "en").toLowerCase();
+    apply(saved || (nav.indexOf("es") === 0 ? "es" : "en"));
+    document.querySelectorAll(".lang button").forEach(function (b) {
+      b.addEventListener("click", function () {
+        apply(b.dataset.set);
+        try { localStorage.setItem(KEY, b.dataset.set); } catch (e) {}
+      });
+    });
+  })();
+</script>
 </body>
 </html>

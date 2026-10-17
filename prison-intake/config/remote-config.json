@@ -1,0 +1,18 @@
+{
+  "version": "2026-10-16.1",
+  "values": {
+    "adsEnabled": true,
+    "adsFromDay": 2,
+    "interstitialFirstEligibleShift": 3,
+    "interstitialShiftCooldown": 2,
+    "interstitialDailyCap": 4,
+    "interstitialSkipBelowAccuracy": 0.5,
+    "reviewPerShift": 1,
+    "reviewMultiplier": 1,
+    "supervisorHintLimit": 1,
+    "overtimeHintLimit": 2,
+    "hintCashPrice": 150,
+    "upgradeBoostFraction": 0.3,
+    "upgradeBoostDailyCap": 3
+  }
+}
